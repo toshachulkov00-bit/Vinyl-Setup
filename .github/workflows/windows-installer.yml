@@ -1,0 +1,44 @@
+name: Build Vinyl Windows installer
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - "src/**"
+      - "src-tauri/**"
+      - "package.json"
+      - "package-lock.json"
+      - ".github/workflows/windows-installer.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: windows-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Install Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - name: Install Rust
+        uses: dtolnay/rust-toolchain@stable
+        with:
+          targets: i686-pc-windows-msvc
+      - name: Install NSIS
+        run: choco install nsis -y
+      - name: Install frontend dependencies
+        run: npm install
+      - name: Build 32-bit Windows installer
+        run: npm run tauri build -- --target i686-pc-windows-msvc
+      - name: Upload installer
+        uses: actions/upload-artifact@v4
+        with:
+          name: Vinyl-Setup-Windows-x86
+          path: src-tauri/target/i686-pc-windows-msvc/release/bundle/nsis/*.exe
+          if-no-files-found: error
+          retention-days: 30
