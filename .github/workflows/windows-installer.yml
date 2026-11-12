@@ -32,6 +32,8 @@ jobs:
         run: choco install nsis -y
       - name: Install frontend dependencies
         run: npm install
+      - name: Generate app icons
+        run: npm run tauri icon src-tauri/icons/icon.svg
       - name: Build 32-bit Windows installer
         run: npm run tauri build -- --target i686-pc-windows-msvc
       - name: Upload installer
