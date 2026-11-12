@@ -1,0 +1,30 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap');
+:root{font-family:Manrope,Segoe UI,sans-serif;color:#f5f2ed;background:transparent;font-synthesis:none}
+*{box-sizing:border-box}
+body{margin:0;min-width:360px;min-height:260px;background:transparent}
+.shell{min-height:100vh;padding:22px 24px 15px;border:1px solid #ffffff18;border-radius:22px;background:radial-gradient(circle at 12% 10%,#28221c 0,#151519 38%,#0b0c11 100%);box-shadow:0 20px 70px #0009;overflow:hidden}
+.top,footer{display:flex;align-items:center;justify-content:space-between}
+.brand{font-size:12px;font-weight:800;letter-spacing:.22em}.brand i{display:inline-block;width:7px;height:7px;margin-right:8px;border-radius:50%;background:#d69a53;box-shadow:0 0 12px #d69a53}
+.live,.eyebrow,footer,.status,.times{font:10px 'DM Mono',monospace;letter-spacing:.12em;color:#89878b}
+.live b{display:inline-block;width:6px;height:6px;border-radius:50%;background:#79bd8a;margin-right:6px}
+.player{display:grid;grid-template-columns:190px 1fr;gap:28px;align-items:center;padding:22px 0 16px}
+.record-wrap{display:grid;place-items:center}
+.record{position:relative;width:178px;height:178px;border-radius:50%;background:repeating-radial-gradient(circle,#171719 0px,#171719 2px,#252529 3px,#111114 4px);box-shadow:0 12px 35px #000a,inset 0 0 0 1px #ffffff20}
+.record:before{content:"";position:absolute;inset:8px;border:1px solid #ffffff12;border-radius:50%}
+.record.spinning{animation:spin 4s linear infinite}
+.grooves{position:absolute;inset:23px;border:1px solid #ffffff12;border-radius:50%;box-shadow:0 0 0 7px #ffffff05,0 0 0 15px #ffffff04}
+.label{position:absolute;inset:57px;border-radius:50%;display:grid;place-items:center;background:radial-gradient(circle at 35% 30%,#e2b77c,#9c6336 70%,#55351f);border:4px solid #171719;box-shadow:0 0 0 1px #ffffff30}
+.label span{font-weight:800;font-size:27px;color:#20150f}
+.details{min-width:0}.eyebrow{color:#c28b55;margin-bottom:8px}
+h1{font-size:20px;line-height:1.25;margin:0 0 5px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.details p{margin:0;color:#aaa6a1;font-size:12px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.progress{height:3px;background:#ffffff20;border-radius:10px;margin-top:23px;overflow:hidden}
+.progress div{height:100%;width:0;background:#d5a16a;transition:width .7s linear}
+.times{display:flex;justify-content:space-between;margin-top:7px;font-size:9px}
+.controls{display:flex;align-items:center;gap:13px;margin-top:16px}
+button{width:32px;height:32px;border:0;border-radius:50%;background:#ffffff0d;color:#e8e2da;font-size:15px;cursor:pointer}
+button:hover{background:#ffffff20}.controls .play{width:40px;height:40px;background:#d5a16a;color:#20150f;font-size:16px}
+.status{margin-top:12px;font-size:9px;letter-spacing:.08em}
+footer{border-top:1px solid #ffffff12;padding-top:12px;font-size:8px}
+@keyframes spin{to{transform:rotate(360deg)}}
+@media(max-width:500px){.shell{padding:17px}.player{grid-template-columns:120px 1fr;gap:17px}.record{width:116px;height:116px}.label{inset:37px}.label span{font-size:20px}.grooves{inset:16px}h1{font-size:16px}}
