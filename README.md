@@ -17,6 +17,10 @@ Push to `main` or manually run **Build Vinyl Windows installer** in the Actions 
 
 The installer is configured for per-machine installation. On 64-bit Windows, the 32-bit application is installed under **Program Files (x86)**.
 
+## Build status
+
+The Windows installer is built by GitHub Actions on pushes to the main branch. The first run must complete successfully before an installer can be downloaded from the Actions artifacts.
+
 ## Notes
 
 - Requires Windows 10/11 with an active SMTC-compatible media session.
