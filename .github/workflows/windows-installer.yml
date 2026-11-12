@@ -8,8 +8,8 @@ on:
       - "src/**"
       - "src-tauri/**"
       - "package.json"
-      - "package-lock.json"
       - ".github/workflows/windows-installer.yml"
+      - "README.md"
 
 permissions:
   contents: read
@@ -24,7 +24,6 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 22
-          cache: npm
       - name: Install Rust
         uses: dtolnay/rust-toolchain@stable
         with:
